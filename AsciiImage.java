@@ -13,8 +13,9 @@ public class AsciiImage
         System.out.println("Provide the full Image URL"); 
         String image_url = scan.nextLine().trim();
         
-        System.out.println("Choose a resolution(4, 8, 16 etc...)");
+        System.out.println("Choose a resolution(4, 8, 10, 16...");
         System.out.println("Lower numbers means higher resolution and a bigger image (min = 1)");
+        System.out.println("A resolution between 16 - 32 is recommended for most images");
         int resolution = scan.nextInt();
         scan.close();
 
@@ -25,7 +26,7 @@ public class AsciiImage
         }
         catch (java.io.IOException e)
         {
-            System.out.println("IOException Caught");
+            System.out.println("URL not working (Check if it leads to a website instead of picture)");
             return;
         }
 
