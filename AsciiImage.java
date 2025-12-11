@@ -13,6 +13,11 @@ public class AsciiImage
         //Takes image URL and stores it in image_raster
         System.out.println("Paste the full image path:"); 
         String image_path = scan.nextLine().trim();
+
+        if (image_path.startsWith("\"") && image_path.endsWith("\"")) 
+        {
+            image_path = image_path.substring(1, image_path.length() - 1);
+        }
         
         System.out.println("Choose a resolution(4, 8, 10, 16...");
         System.out.println("Lower numbers means higher resolution and a bigger image (min = 1)");
