@@ -64,16 +64,16 @@ public class AsciiImage
                 }
                 brightness /= (resolution * resolution);
 
-                if (brightness < 25)        ascii_image.append("@") ;
-                else if (brightness < 50)   ascii_image.append("#") ;
-                else if (brightness < 75)   ascii_image.append("$") ;
-                else if (brightness < 100)  ascii_image.append("%") ;
-                else if (brightness < 125)  ascii_image.append("*") ;
-                else if (brightness < 150)  ascii_image.append("+") ;
-                else if (brightness < 175)  ascii_image.append("-") ;
-                else if (brightness < 200)  ascii_image.append(".") ;
-                else if (brightness < 225)  ascii_image.append("'") ;
-                else                        ascii_image.append(" ") ;
+                if (brightness < 25)        ascii_image.append(" @ ") ;
+                else if (brightness < 50)   ascii_image.append(" # ") ;
+                else if (brightness < 75)   ascii_image.append(" $ ") ;
+                else if (brightness < 100)  ascii_image.append(" % ") ;
+                else if (brightness < 125)  ascii_image.append(" * ") ;
+                else if (brightness < 150)  ascii_image.append(" + ") ;
+                else if (brightness < 175)  ascii_image.append(" - ") ;
+                else if (brightness < 200)  ascii_image.append(" . ") ;
+                else if (brightness < 225)  ascii_image.append(" ' ") ;
+                else                        ascii_image.append("  ") ;
             }
             
             ascii_image.append("\n");
