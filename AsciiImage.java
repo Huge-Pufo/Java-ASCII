@@ -13,7 +13,8 @@ public class AsciiImage
         System.out.println("Provide the full Image URL"); 
         String image_url = scan.nextLine().trim();
         
-        System.out.println("Choose a resolution(4, 8, 16 etc...) lower means higher quality.");
+        System.out.println("Choose a resolution(4, 8, 16 etc...)");
+        System.out.println("Lower numbers means higher resolution and a bigger image (min = 1)");
         int resolution = scan.nextInt();
         scan.close();
 
