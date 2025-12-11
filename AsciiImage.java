@@ -1,4 +1,5 @@
 import java.awt.image.BufferedImage;
+import java.io.File;
 import javax.imageio.ImageIO;
 import java.net.URL;
 import java.util.Scanner;
@@ -29,7 +30,7 @@ public class AsciiImage
                 return;
             }
         }
-        catch (java.io.Exception e)
+        catch (java.io.IOException e)
         {
             System.out.println("IOException caught: " + e.getMessage());
             return;
