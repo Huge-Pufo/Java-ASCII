@@ -10,8 +10,11 @@ public class AsciiImage
         Scanner scan = new Scanner(System.in);
 
         //Takes image URL and stores it in image_raster
-        System.out.println("Provide an image URL"); 
+        System.out.println("Provide the full Image URL"); 
         String image_url = scan.nextLine().trim();
+        
+        System.out.println("Choose a resolution(4, 8, 16 etc...) lower means higher quality.");
+        int resolution = scan.nextInt();
         scan.close();
 
         BufferedImage image = null;
@@ -27,14 +30,16 @@ public class AsciiImage
 
         StringBuilder ascii_image = new StringBuilder();
 
-        for (int y = image.getMinY(); y < image.getHeight() - 4; y+=4)
+        resolution = 16;
+
+        for (int y = image.getMinY(); y < image.getHeight() - resolution; y+=resolution)
         {
-            for (int x = image.getMinX(); x < image.getWidth() - 4; x+=4)
+            for (int x = image.getMinX(); x < image.getWidth() - resolution; x+=resolution)
             {
                 double brightness = 0;
-                for (int row = 0; row < 4; row++)
+                for (int row = 0; row < resolution; row++)
                 {
-                    for(int col = 0; col < 4; col++)
+                    for(int col = 0; col < resolution; col++)
                     {
                         int rgb = image.getRGB(x + col, y + row);
 
@@ -45,7 +50,7 @@ public class AsciiImage
                         brightness += (0.2126 * red + 0.7152 * green + 0.0722 * blue);
                     }
                 }
-                brightness /= 16;
+                brightness /= (resolution * resolution);
 
                 if (brightness < 25)        ascii_image.append("@") ;
                 else if (brightness < 50)   ascii_image.append("#") ;
