@@ -10,8 +10,8 @@ public class AsciiImage
         Scanner scan = new Scanner(System.in);
 
         //Takes image URL and stores it in image_raster
-        System.out.println("Provide the full Image URL"); 
-        String image_url = scan.nextLine().trim();
+        System.out.println("Paste the full image path:"); 
+        String image_path = scan.nextLine().trim();
         
         System.out.println("Choose a resolution(4, 8, 10, 16...");
         System.out.println("Lower numbers means higher resolution and a bigger image (min = 1)");
@@ -22,13 +22,19 @@ public class AsciiImage
         BufferedImage image = null;
         try
         {
-            image = ImageIO.read(new URL(image_url));
+            image = ImageIO.read(new File(image_path));
+            if (image == null) 
+            {
+                System.out.println("Failed to load image. Make sure it's a valid JPG, PNG, BMP, or GIF file.");
+                return;
+            }
         }
-        catch (java.io.IOException e)
+        catch (java.io.Exception e)
         {
-            System.out.println("URL not working (Check if it leads to a website instead of picture)");
+            System.out.println("IOException caught: " + e.getMessage());
             return;
         }
+
 
         StringBuilder ascii_image = new StringBuilder();
 
