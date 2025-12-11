@@ -30,8 +30,6 @@ public class AsciiImage
 
         StringBuilder ascii_image = new StringBuilder();
 
-        resolution = 16;
-
         for (int y = image.getMinY(); y < image.getHeight() - resolution; y+=resolution)
         {
             for (int x = image.getMinX(); x < image.getWidth() - resolution; x+=resolution)
